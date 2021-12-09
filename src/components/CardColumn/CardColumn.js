@@ -6,12 +6,8 @@ import './CardColumn.scss'
 import { Container, Draggable } from 'react-smooth-dnd'
 
 function CardColumn(props) {
-  const { column } = props
+  const { column, onCardDrop } = props
   const cards = mapOrder(column.cards, column.cardorder, 'id')
-
-  const onCardDrop = (dropResult) => {
-    console.log(dropResult)
-  }
 
   return (
     <div className='column'>
@@ -20,14 +16,14 @@ function CardColumn(props) {
         <Container
           orientation='vertical'
           groupName='work-columns'
-          onDrop={onCardDrop}
+          onDrop={(dropResult) => onCardDrop(column.id, dropResult)}
           getChildPayload={(index) => cards[index]}
           dragClass='card-ghost'
           dropClass='card-ghost-drop'
           dropPlaceholder={{
             animationDuration: 150,
             showOnTop: true,
-            className: 'cards-drop-preview'
+            className: 'cards-drop-preview',
           }}
           dropPlaceholderAnimationDuration={200}
         >
@@ -38,7 +34,11 @@ function CardColumn(props) {
           ))}
         </Container>
       </div>
-      <footer>another card</footer>
+      <footer>
+        <div className='footer-action'>
+          <i className='fa fa-plus icon' /> Add another card
+        </div>
+      </footer>
     </div>
   )
 }

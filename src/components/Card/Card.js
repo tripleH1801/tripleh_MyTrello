@@ -5,13 +5,13 @@ function Card(props) {
   const { card } = props
   return (
     <div className='card-item'>
-      {card.cover &&
-      <img
-        src={card.cover}
-        alt='alt-img'
-        onMouseDown={e=> e.preventDefault()}
-      />
-      }
+      {card.cover && (
+        <img
+          src={card.cover}
+          alt='alt-img'
+          onMouseDown={(e) => e.preventDefault()}
+        />
+      )}
       {card.title}
     </div>
   )

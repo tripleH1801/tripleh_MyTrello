@@ -2,7 +2,7 @@ export const initialData = {
   boards: [
     {
       id: 'board-1',
-      columnorder: ['column-1', ' column-2', 'column-3'],
+      columnorder: ['column-1', 'column-2', 'column-3'],
       columns: [
         {
           id: 'column-1',
