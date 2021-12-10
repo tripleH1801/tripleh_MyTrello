@@ -20,6 +20,20 @@ body {
     margin: 0 15px;
     padding: 0;
   }
+  .tripleh-content-editable {
+    min-height: 0;
+    padding: 0.1rem 0.5rem;
+    background-color: inherit;
+    border: none;
+    font-size: inherit;
+    font-weight: inherit;
+    cursor: pointer;
+    &:focus {
+      background-color: #fff;
+      cursor: text;
+      border: 1px solid $input-border-color;
+    }
+  }
   textarea:focus,
   textarea.form-control:focus,
   input.form-control:focus,
@@ -35,7 +49,7 @@ body {
     box-shadow: none;
   }
   .btn:focus, .btn:active {
-    outline: none;
-    box-shadow: none;
+    outline: none !important;
+    box-shadow: none !important;
   }
 }
