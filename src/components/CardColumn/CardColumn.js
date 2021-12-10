@@ -23,7 +23,7 @@ function CardColumn(props) {
           dropPlaceholder={{
             animationDuration: 150,
             showOnTop: true,
-            className: 'cards-drop-preview',
+            className: 'cards-drop-preview'
           }}
           dropPlaceholderAnimationDuration={200}
         >

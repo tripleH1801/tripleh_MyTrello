@@ -131,7 +131,7 @@ export const initialData = {
               columnId: 'column-3',
               title: 'Title of card 18',
               cover: 'https://preview.redd.it/5afmy0bn40p71.jpg?width=640&crop=smart&auto=webp&s=479a030124dad2655b168d703cab933aef2b6641'
-            },
+            }
           ]
         },
         {
