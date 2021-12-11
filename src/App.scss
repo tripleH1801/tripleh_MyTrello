@@ -12,17 +12,19 @@ body {
   height: 100vh;
   overflow: hidden;
   background-color: $board-bg-color;
+
   .icon {
     font-size: 14px;
     margin: 0 3px;
   }
+
   .tripleh-trello-container {
     margin: 0 15px;
     padding: 0;
   }
+
   .tripleh-content-editable {
     min-height: 0;
-    padding: 0.1rem 0.5rem;
     background-color: inherit;
     border: none;
     font-size: inherit;
@@ -31,9 +33,21 @@ body {
     &:focus {
       background-color: #fff;
       cursor: text;
-      border: 1px solid $input-border-color;
     }
   }
+
+  span.cancel-icon {
+    margin-left: $gap;
+    cursor: pointer;
+    i {
+      font-size: 18px;
+      color: $alert-danger;
+      &:hover {
+        color: darken($alert-danger, 10);
+      }
+    }
+  }
+
   textarea:focus,
   textarea.form-control:focus,
   input.form-control:focus,
@@ -47,8 +61,10 @@ body {
   [type='tel'].form-control:focus,
   [contenteditable].form-control:focus {
     box-shadow: none;
+    border: 1px solid $input-border-color;
   }
-  .btn:focus, .btn:active {
+  .btn:focus,
+  .btn:active {
     outline: none !important;
     box-shadow: none !important;
   }

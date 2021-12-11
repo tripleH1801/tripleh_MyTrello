@@ -28,7 +28,8 @@
   .add-new-column {
     width: 250px;
     max-width: 250px;
-    padding: 4px 0 4px 15px;
+    line-height: 36px;
+    padding-left: 15px;
     cursor: pointer;
     color: white;
     margin-left: $gap;
@@ -51,20 +52,6 @@
 
     .input-enter-new-column {
       margin: 5px 0;
-      &:focus {
-        border-color: $input-border-color;
-      }
-    }
-  }
-  span.cancel-new-column {
-    margin-left: $gap;
-    cursor: pointer;
-    i {
-      font-size: 18px;
-      color: $alert-danger;
-      &:hover {
-        color: darken($alert-danger, 10);
-      }
     }
   }
 }

@@ -1,7 +1,7 @@
-@import "_setting.scss";
+@import '_setting.scss';
 
-$column-header-height: 36px;
-$column-footer-height: 36px;
+$column-header-height: 42px;
+$column-footer-height: 42px;
 
 $column-height: calc(#{$board-content-height} - #{$gap * 2});
 
@@ -15,6 +15,7 @@ $column-height: calc(#{$board-content-height} - #{$gap * 2});
     color: $app-main-text-color;
     padding: 5px 8px;
   }
+
   header.column-drag-handle {
     padding: 5px 8px;
     height: $column-header-height;
@@ -26,10 +27,10 @@ $column-height: calc(#{$board-content-height} - #{$gap * 2});
     cursor: grab;
     display: flex;
 
-    .column-title{
+    .column-title {
       flex: 90%;
     }
-    .column-dropdown-actions{
+    .column-dropdown-actions {
       flex: 10%;
       .dropdown {
         button.dropdown-btn {
@@ -65,7 +66,7 @@ $column-height: calc(#{$board-content-height} - #{$gap * 2});
   footer {
     padding-left: 15px;
     height: $column-footer-height;
-    line-height: $column-footer-height;
+    line-height: calc(#{$column-footer-height} - 2* 5px) ;
     font-size: 16px;
     font-weight: bold;
     border-bottom-left-radius: $column-border-radius;
@@ -73,6 +74,7 @@ $column-height: calc(#{$board-content-height} - #{$gap * 2});
     color: #888;
     .footer-action {
       margin-left: 5px;
+      // line-height: 26px;
       cursor: pointer;
       &:hover {
         color: $app-main-text-color;
@@ -99,7 +101,14 @@ $column-height: calc(#{$board-content-height} - #{$gap * 2});
       border: 1px dashed #abc;
       margin: 5px;
     }
-    
+
+    .add-new-card-area {
+      .textarea-enter-new-card {
+        min-height: 54px;
+        max-height: 162px;
+      }
+    }
+
     &::-webkit-scrollbar {
       -webkit-appearance: none;
     }

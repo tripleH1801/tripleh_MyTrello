@@ -18,8 +18,13 @@ import { Container, Draggable } from 'react-smooth-dnd'
 function BoardContent() {
   const [board, setBoard] = useState({})
   const [columns, setColumns] = useState([])
+
   const [openNewColumnForm, setOpenNewColumnForm] = useState(false)
+  const toggleOpenNewColumnForm = () => setOpenNewColumnForm(!openNewColumnForm)
+
   const [newColumnTitle, setNewColumnTitle] = useState('')
+  const onNewColumnTitleChange = (e) => setNewColumnTitle(e.target.value)
+
   const newColumnInputRef = useRef(null)
 
   useEffect(() => {
@@ -67,8 +72,6 @@ function BoardContent() {
     }
   }
 
-  const toggleOpenNewColumnForm = () => setOpenNewColumnForm(!openNewColumnForm)
-
   const addNewColumn = () => {
     if (newColumnTitle.length === 0) {
       newColumnInputRef.current.focus()
@@ -95,14 +98,12 @@ function BoardContent() {
     toggleOpenNewColumnForm()
   }
 
-  const onNewColumnTitleChange = (e) => {
-    setNewColumnTitle(e.target.value)
-  }
-
   const onUpdateColumn = (newColumnToUpdate) => {
     const columnIdToUpdate = newColumnToUpdate.id
     let newColumns = [...columns]
-    const columnIndexToUpdate = newColumns.findIndex( i => i.id === columnIdToUpdate )
+    const columnIndexToUpdate = newColumns.findIndex(
+      (i) => i.id === columnIdToUpdate
+    )
     if (newColumnToUpdate._destroy) {
       newColumns.splice(columnIndexToUpdate, 1)
     } else {
@@ -132,7 +133,11 @@ function BoardContent() {
       >
         {columns.map((column, index) => (
           <Draggable key={index}>
-            <CardColumn column={column} onCardDrop={onCardDrop} onUpdateColumn={onUpdateColumn}/>
+            <CardColumn
+              column={column}
+              onCardDrop={onCardDrop}
+              onUpdateColumn={onUpdateColumn}
+            />
           </Draggable>
         ))}
       </Container>
@@ -156,12 +161,14 @@ function BoardContent() {
                 ref={newColumnInputRef}
                 value={newColumnTitle}
                 onChange={onNewColumnTitleChange}
-                onKeyDown={(e) => {e.key === 'Enter' && addNewColumn()}}
+                onKeyDown={(e) => {
+                  e.key === 'Enter' && addNewColumn()
+                }}
               />
               <Button variant='success' size='sm' onClick={addNewColumn}>
                 Add column
               </Button>
-              <span className='cancel-new-column' onClick={toggleOpenNewColumnForm}>
+              <span className='cancel-icon' onClick={toggleOpenNewColumnForm}>
                 <i className='fa fa-trash icon' />
               </span>
             </Col>
